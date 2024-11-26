@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Navbar from "./NavBar";
+import Navbar from "./components/NavBar";
 
 const DataEntryPage = () => {
   const [formData, setFormData] = useState({
