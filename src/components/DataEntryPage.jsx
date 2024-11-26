@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Navbar from "./components/NavBar";
-
+import Navbar from "./Navbar";
 const DataEntryPage = () => {
   const [formData, setFormData] = useState({
     product: "",
