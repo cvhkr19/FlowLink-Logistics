@@ -1,16 +1,24 @@
-/* Background styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Hubot+Sans:ital,wght@0,200..900;1,200..900&display=swap');
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0A1128; /* Dark Blue Background */
-  color: #DFF6FF; /* Light Blue Text */
+  font-family: "Hubot Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;   
+  background-color: #0A1128; 
+  color: #DFF6FF; 
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 100vh; /* Full viewport height */
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh; 
+  width: 100vw;
+  background-image: url(loginbg.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
-/* Login container styling */
 .login-container {
   display: flex;
   justify-content: center;
@@ -19,7 +27,7 @@ body {
 }
 
 .login-box {
-  background-color: #001F54; /* Deep Blue Box */
+  background-color: #001f5486; /* Deep Blue Box */
   padding: 30px;
   width: 400px;
   border-radius: 10px;
@@ -48,11 +56,11 @@ body {
 }
 
 .form-group input {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border: 1px solid #003F88; /* Brighter Blue Border */
   border-radius: 5px;
-  background-color: #0A1128; /* Matches background color */
+  background-color: #0a1128bb; /* Matches background color */
   color: #DFF6FF; /* Light Blue Text */
   font-size: 1rem;
 }
@@ -78,7 +86,7 @@ body {
   margin-top: 15px;
   border: none;
   border-radius: 5px;
-  background-color: #003F88; /* Brighter Blue Buttons */
+  background-color: #003f8894; /* Brighter Blue Buttons */
   color: #DFF6FF; /* Light Blue Text */
   font-size: 1rem;
   font-weight: bold;
@@ -94,7 +102,7 @@ body {
 
 /* Link button styling */
 .switch-btn {
-  background-color: #001F54; /* Deep Blue Button */
+  background-color: #003f8894; /* Deep Blue Button */
 }
 
 .switch-btn:hover {
