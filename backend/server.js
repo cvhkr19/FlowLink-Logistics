@@ -20,7 +20,7 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
 db.once("open", () => console.log("Connected to MongoDB database 'SCM'"));
 
-// User Schema explicitly using "users" collection
+
 const userSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
