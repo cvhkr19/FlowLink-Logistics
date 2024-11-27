@@ -1,54 +1,9 @@
-/* LandingPage.css */
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0A1128; /* Dark Blue Background */
-    color: #DFF6FF; /* Light Blue Text */
-    display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center; /* Centers vertically */
-    height: 100vh; /* Full viewport height */
-  }
-  
-  .container {
-    text-align: center;
-    padding: 50px;
-  }
-  
-  .header {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  .description {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
-  
-  .button-container {
-    margin-top: 20px;
-  }
-  
-  .button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #001F54; /* Deep Blue Button */
-    color: #DFF6FF; /* Light Blue Text */
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s;
-  }
-  
-  .button:hover {
-    background-color: #003F88; /* Slightly Brighter Blue on Hover */
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
+.container {
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+ }
+ .spline {
+   width: 100%;
+   height: 100%;
+ }
