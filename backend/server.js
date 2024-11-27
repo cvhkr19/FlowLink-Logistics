@@ -6,41 +6,46 @@ const cors = require("cors");
 
 const app = express();
 const PORT = 5000;
-const JWT_SECRET = "your_jwt_secret_key"; // Replace with a secure key
+const JWT_SECRET = "your_jwt_secret_key";
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect("mongodb://127.0.0.1:27017/supplychain", {
+// Connect to the MongoDB "SCM" database
+mongoose.connect("mongodb+srv://Inferno:Test123@cluster0.bycscce.mongodb.net/SCM", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
-db.once("open", () => console.log("Connected to MongoDB"));
+db.once("open", () => console.log("Connected to MongoDB database 'SCM'"));
 
-// User Schema
-const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
+// User Schema explicitly using "users" collection
+const userSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+  },
+  { collection: "users" } // Specify collection name
+);
 
 const User = mongoose.model("User", userSchema);
 
-// Shipment Schema
-const shipmentSchema = new mongoose.Schema({
-  product: String,
-  shipper: String,
-  status: { type: String, enum: ["Approved", "Pending", "Rejected"], default: "Pending" },
-  customer: String,
-  customerId: String,
-  trackingNumber: String,
-  deliveryStatus: { type: String, enum: ["Pending", "In Transit", "Delivered"], default: "Pending" },
-  deliveryPercentage: Number,
-  date: { type: Date, default: Date.now },
-});
+// Shipment Schema explicitly using "shipments" collection
+const shipmentSchema = new mongoose.Schema(
+  {
+    product: String,
+    shipper: String,
+    status: { type: String, enum: ["Approved", "Pending", "Rejected"], default: "Pending" },
+    customer: String,
+    customerId: String,
+    trackingNumber: String,
+    deliveryStatus: { type: String, enum: ["Pending", "In Transit", "Delivered"], default: "Pending" },
+    deliveryPercentage: Number,
+    date: { type: Date, default: Date.now },
+  },
+  { collection: "shipments" } // Specify collection name
+);
 
 const Shipment = mongoose.model("Shipment", shipmentSchema);
 

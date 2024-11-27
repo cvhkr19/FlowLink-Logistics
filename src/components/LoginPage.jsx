@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa"; // Importing icons for show/hide password
+import "./LoginPage.css"; // Import the CSS file
 
 function LoginPage() {
   const [isRegister, setIsRegister] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -42,42 +45,52 @@ function LoginPage() {
   };
 
   return (
-    <div style={{ textAlign: "center", padding: "50px" }}>
-      <h1>{isRegister ? "Register" : "Login"}</h1>
-      <form onSubmit={handleSubmit} style={{ display: "inline-block", textAlign: "left" }}>
-        <div style={{ marginBottom: "10px" }}>
-          <label>
-            Username:
+    <div className="login-container">
+      <div className="login-box">
+        <h1>{isRegister ? "Register" : "Login"}</h1>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
             <input
               type="text"
+              id="username"
               name="username"
               value={formData.username}
               onChange={handleInputChange}
               required
-              style={{ marginLeft: "10px" }}
             />
-          </label>
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label>
-            Password:
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-              required
-              style={{ marginLeft: "10px" }}
-            />
-          </label>
-        </div>
-        <button type="submit" style={{ marginRight: "10px" }}>
-          {isRegister ? "Register" : "Login"}
-        </button>
-        <button type="button" onClick={() => setIsRegister(!isRegister)}>
-          Switch to {isRegister ? "Login" : "Register"}
-        </button>
-      </form>
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <div className="password-container">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+              />
+              <div
+                className="show-password-icon"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </div>
+            </div>
+          </div>
+          <button type="submit" className="submit-btn">
+            {isRegister ? "Register" : "Login"}
+          </button>
+          <button
+            type="button"
+            className="switch-btn"
+            onClick={() => setIsRegister(!isRegister)}
+          >
+            Switch to {isRegister ? "Login" : "Register"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
